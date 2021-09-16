@@ -2,7 +2,6 @@
   "name": "skripio-component-template",
   "version": "1.0.0",
   "description": "Template for creating new skripio component",
-  "main": "index.js",
   "scripts": {
     "watch": "webpack --config webpack.config.js --watch",
     "build": "webpack --config webpack.config.js",
