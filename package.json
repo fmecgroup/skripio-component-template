@@ -1,6 +1,6 @@
 {
   "name": "skripio-component-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Template for creating new skripio component",
   "scripts": {
     "watch": "webpack --config webpack.config.js --watch",
@@ -49,6 +49,41 @@
   "standard-version": {
     "scripts": {
       "prerelease": "npm run build && npm run doc && git add ./dist/bundle.html && git add ./README.md"
-    }
+    },
+    "issueUrlFormat": "https://dev.azure.com/fmec/FMS/_workitems/edit/{{id}}",
+    "types": [
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "chore",
+        "hidden": true
+      },
+      {
+        "type": "docs",
+        "section": "Documentation"
+      },
+      {
+        "type": "style",
+        "hidden": true
+      },
+      {
+        "type": "refactor",
+        "hidden": true
+      },
+      {
+        "type": "perf",
+        "hidden": true
+      },
+      {
+        "type": "test",
+        "hidden": true
+      }
+    ]
   }
 }
