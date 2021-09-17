@@ -22,8 +22,8 @@ This template contains all necessary assets and build tools as well as config fi
 
 *   `args` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized method args object. (optional, default `'{}'`)
 
-    *   `args.callback` **any** Any callback value.
-    *   `args.click` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If truthy then click event will be emitted for sync results.
+    *   `args.callback` **any** Any callback value. (optional, default `'none'`)
+    *   `args.click` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If truthy then click event will be emitted for sync results. (optional, default `false`)
 
 Returns **any** <br>
 - `sync`  [Describe sync results here]. <br>
@@ -38,10 +38,10 @@ Returns **any** <br>
 *   `args` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized method args object. (optional, default `'{}'`)
 
     *   `args.objectName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Skripio component object name.
-    *   `args.constructorArgs` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Component constructor args object.
-    *   `args.responseElementSelector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** DOM element selector that will receive async responses.
-    *   `args.callback` **any** Any callback value.
-    *   `args.click` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If truthy then click event will be emitted for sync results.
+    *   `args.constructorArgs` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Component constructor args object. (optional, default `{}`)
+    *   `args.responseElementSelector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** DOM element selector that will receive async responses. (optional, default `'#response'`)
+    *   `args.callback` **any** Any callback value. (optional, default `'none'`)
+    *   `args.click` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If truthy then click event will be emitted for sync results. (optional, default `false`)
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** <br>
 - `sync`  If successful a serialized object that contains the instantiated **skripio** object name and **response DOM element selector** of a DOM element which will receive async responses from this object will be returned. <br>
@@ -57,9 +57,9 @@ Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
     *   `args.object` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Skripio component object name.
     *   `args.method` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Skripio component method name.
-    *   `args.methodArgs` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Skripio component method arguments object.
-    *   `args.callback` **any** Any callback value.
-    *   `args.click` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If truthy then click event will be emitted for sync results.
+    *   `args.methodArgs` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Skripio component method arguments object. (optional, default `{}`)
+    *   `args.callback` **any** Any callback value. (optional, default `'none'`)
+    *   `args.click` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If truthy then click event will be emitted for sync results. (optional, default `false`)
 
 Returns **any** <br>
 - `sync`  See component method docs. <br>
