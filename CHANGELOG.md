@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/fmecgroup/skripio-component-template/compare/v1.0.0...v1.0.1) (2021-09-17)
+
+
+### Bug Fixes
+
+* Document default values. ([b08b581](https://github.com/fmecgroup/skripio-component-template/commit/b08b581edfbf616080ef50bd41abd9d470a04182)), closes [AB#1925](https://dev.azure.com/fmec/FMS/_workitems/edit/1925)
+
+
+### Documentation
+
+* Enable docs commits in changelog. ([5bc3947](https://github.com/fmecgroup/skripio-component-template/commit/5bc3947a9d88c20738c54dd8da0de5ac78c1ea75)), closes [AB#1925](https://dev.azure.com/fmec/FMS/_workitems/edit/1925)
+
 ## 1.0.0 (2021-09-16)
 
 
