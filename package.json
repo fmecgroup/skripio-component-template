@@ -6,7 +6,7 @@
     "watch": "webpack --config webpack.config.js --watch",
     "release-test": "standard-version -a --dry-run",
     "build-it": "webpack --config webpack.config.js",
-    "document-it": "documentation readme ./src/index.js -s=\"Reference\" --markdown-toc-max-depth=2",
+    "document-it": "documentation readme ./src/index.js -s=\"Reference\" --markdown-toc-max-depth=2 --sort-order=alpha",
     "release-it": "standard-version -a"
   },
   "repository": {
