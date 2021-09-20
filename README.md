@@ -10,11 +10,12 @@ This template contains all necessary assets and build tools as well as config fi
 
 ### Table of Contents
 
-*   [downloadAssets](#downloadassets)
-*   [initComponent](#initcomponent)
-*   [execComponentMethod](#execcomponentmethod)
+*   [getComponentAssets](#getcomponentassets)
+*   [initComponentObject](#initcomponentobject)
+*   [runComponentMethod](#runcomponentmethod)
+*   [SkripioComponent](#skripiocomponent)
 
-## downloadAssets
+## getComponentAssets
 
 **Downloads assets required for component to function.**
 
@@ -29,7 +30,7 @@ Returns **any** <br>
 - `sync`  [Describe sync results here]. <br>
 - `async` [Describe async results here].
 
-## initComponent
+## initComponentObject
 
 **Instantiates skripio component object.**
 
@@ -47,7 +48,7 @@ Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 - `sync`  If successful a serialized object that contains the instantiated **skripio** object name and **response DOM element selector** of a DOM element which will receive async responses from this object will be returned. <br>
 - `async` None.
 
-## execComponentMethod
+## runComponentMethod
 
 **Executes skripio component methods.**
 
@@ -64,3 +65,16 @@ Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 Returns **any** <br>
 - `sync`  See component method docs. <br>
 - `async` See component method docs.
+
+## SkripioComponent
+
+**Skripio component object.**<br>
+\[document component constructor here]
+
+### Parameters
+
+*   `$0` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** <br>
+- `sync payload`  None <br>
+- `async payload` [document async payloads here]

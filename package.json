@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/fmecgroup/skripio-component-template#readme",
   "dependencies": {
-    "@skripio/response-emitter": "^1.0.1"
+    "@skripio/response-emitter": "^1.0.2"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
