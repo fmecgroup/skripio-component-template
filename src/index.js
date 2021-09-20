@@ -7,7 +7,7 @@ import SkripioComponent from './modules/skripio.component.js';
 window.ResponseEmitter = ResponseEmitter;
 const re = new ResponseEmitter({
   responseElementId: 'init-response',
-  responseElementClass: 'response',
+  responseElementClass: 'response'
 });
 
 /**
@@ -50,7 +50,7 @@ window.initComponentObject = function (objectName, constructorArgs = '{}', callb
 
   constructorArgs.responseArgs = {
     responseElementId: objectName,
-    responseElementClass: 'response',
+    responseElementClass: 'response'
   };
 
   if (!objectName) {
