@@ -17,19 +17,15 @@ See [CONTRIBUTEJS.MD](https://github.com/fmecgroup/skripio-intro/blob/master/CON
 
 ### Table of Contents
 
-- [About](#about)
-- [Reference](#reference)
-    - [Table of Contents](#table-of-contents)
-  - [getComponentAssets](#getcomponentassets)
-    - [Parameters](#parameters)
-  - [initComponentObject](#initcomponentobject)
-    - [Parameters](#parameters-1)
-  - [runComponentMethod](#runcomponentmethod)
-    - [Parameters](#parameters-2)
-  - [SkripioComponent](#skripiocomponent)
-    - [Parameters](#parameters-3)
-    - [method](#method)
-      - [Parameters](#parameters-4)
+*   [getComponentAssets](#getcomponentassets)
+    *   [Parameters](#parameters)
+*   [initComponentObject](#initcomponentobject)
+    *   [Parameters](#parameters-1)
+*   [runComponentMethod](#runcomponentmethod)
+    *   [Parameters](#parameters-2)
+*   [SkripioComponent](#skripiocomponent)
+    *   [Parameters](#parameters-3)
+    *   [method](#method)
 
 ## getComponentAssets
 
@@ -37,8 +33,8 @@ See [CONTRIBUTEJS.MD](https://github.com/fmecgroup/skripio-intro/blob/master/CON
 
 ### Parameters
 
-*   `loaderArgs` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized asset loader args object. (optional, default `'{}'`)
-*   `callback` **any** Wrapper function 1C callback identifier. (optional, default `'get'`)
+*   `loaderArgs` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized loader args object. (optional, default `'{}'`)
+*   `callback` **any** 1C callback identifier of this wrapper function. (optional, default `'get'`)
 
 Returns **any** <br>
 - `sync payload`  {{Describe sync payload here}}. <br>
@@ -51,8 +47,8 @@ Returns **any** <br>
 ### Parameters
 
 *   `objectName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Component name to instantiate.
-*   `constructorArgs` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized component constructor arguments object. (optional, default `'{}'`)
-*   `callback` **any** Wrapper function 1C callback identifier. (optional, default `'init'`)
+*   `constructorArgs` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized constructor arguments object. See component constructor docs for details. (optional, default `'{}'`)
+*   `callback` **any** 1C callback identifier of this wrapper function. (optional, default `'init'`)
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** <br>
 - `sync payload`  If successful a serialized object that contains instantiated **skripio component** object name and **DOM element id** which will receive async responses from this object will be returned. <br>
@@ -61,14 +57,13 @@ Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 ## runComponentMethod
 
 **Executes skripio component method.**<br>
-For list of method arguments see corresponding method docs.
 
 ### Parameters
 
 *   `object` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Skripio object name.
 *   `method` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Skripio object method name.
 *   `methodArgs` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized object that contains skripio component method arguments. (optional, default `'{}'`)
-*   `callback` **any** Wrapper function 1C callback identifier. (optional, default `'run'`)
+*   `callback` **any** 1C callback identifier of this wrapper function. (optional, default `'run'`)
 
 Returns **any** <br>
 - `sync payload`  See component method docs. <br>
@@ -77,14 +72,13 @@ Returns **any** <br>
 ## SkripioComponent
 
 **Skripio component object.**<br>
-\[document component constructor here].
 
 ### Parameters
 
 *   `args` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** constructor arguments object.
 
     *   `args.responseArgs` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** !Reserved! ResponseEmitter options.
-    *   `args.callback` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Constructor 1C callback identifier. (optional, default `'component'`)
+    *   `args.callback` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 1C callback identifier. (optional, default `'component'`)
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** <br>
 - `sync payload`  None. <br>
@@ -93,14 +87,13 @@ Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 ### method
 
 **Skripio component method.**<br>
-\[document component method here].
 
 #### Parameters
 
 *   `args` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Method arguments object.
 
-    *   `args.param1` **any** Method parameter. (optional, default `'do it'`)
-    *   `args.callback`   (optional, default `'method'`)
+    *   `args.param1` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Method parameter. (optional, default `'do it'`)
+    *   `args.callback` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 1C callback identifier. (optional, default `'method'`)
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** <br>
 - `sync payload`  [document sync payloads here]. <br>

@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/fmecgroup/skripio-component-template/compare/v1.0.1...v1.0.2) (2021-09-21)
+
+
+### Bug Fixes
+
+* Add document-it sort order. ([72eab51](https://github.com/fmecgroup/skripio-component-template/commit/72eab510b5ba430f9d124161ec252541e378cc41)), closes [AB#1927](https://github.com/fmecgroup/AB/issues/1927)
+* Rebuild core ([b4b1b7d](https://github.com/fmecgroup/skripio-component-template/commit/b4b1b7d48045a683f7ee1dfc912fa2806bb9abda)), closes [AB#1927](https://github.com/fmecgroup/AB/issues/1927)
+* Remove issueUrlFormat key from package.json. ([967dd9e](https://github.com/fmecgroup/skripio-component-template/commit/967dd9e40fec20b5234232d7119fba670b617aec)), closes [AB#1927](https://github.com/fmecgroup/AB/issues/1927)
+* Update scripts in package.json. ([ba7572c](https://github.com/fmecgroup/skripio-component-template/commit/ba7572c8829a13544b1cacfa77ddd53e3bbcda60)), closes [AB#1927](https://github.com/fmecgroup/AB/issues/1927)
+
+
+### Documentation
+
+* BugFix docs. ([96da872](https://github.com/fmecgroup/skripio-component-template/commit/96da872e532d64f21adbf0988575749529719bae)), closes [AB#1880](https://github.com/fmecgroup/AB/issues/1880) [AB#1927](https://github.com/fmecgroup/AB/issues/1927)
+* Document template ([af192ca](https://github.com/fmecgroup/skripio-component-template/commit/af192cabca6ca986f249ef3f77f819fc482db3a0)), closes [AB#1927](https://github.com/fmecgroup/AB/issues/1927)
+
 ### [1.0.1](https://github.com/fmecgroup/skripio-component-template/compare/v1.0.0...v1.0.1) (2021-09-17)
 
 
