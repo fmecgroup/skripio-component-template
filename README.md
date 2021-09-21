@@ -1,8 +1,15 @@
+![Skripio logo](/src/assets/logo.svg)
+
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/standard/semistandard)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
 # About
 
 Template to init new **skripio** component repo.
 
 This template contains all necessary assets and build tools as well as config files to quickly start creating a new **skripio** component.
+
+See [CONTRIBUTEJS.MD](https://github.com/fmecgroup/skripio-intro/blob/master/CONTRIBUTEJS.MD) for details on how to develop new skripio component.
 
 # Reference
 
@@ -10,57 +17,84 @@ This template contains all necessary assets and build tools as well as config fi
 
 ### Table of Contents
 
-*   [downloadAssets](#downloadassets)
-*   [initComponent](#initcomponent)
-*   [execComponentMethod](#execcomponentmethod)
+*   [getComponentAssets](#getcomponentassets)
+    *   [Parameters](#parameters)
+*   [initComponentObject](#initcomponentobject)
+    *   [Parameters](#parameters-1)
+*   [runComponentMethod](#runcomponentmethod)
+    *   [Parameters](#parameters-2)
+*   [SkripioComponent](#skripiocomponent)
+    *   [Parameters](#parameters-3)
+    *   [method](#method)
 
-## downloadAssets
+## getComponentAssets
 
-**Downloads assets required for component to function.**
+**Gets downloadable assets required for component to function.**
 
 ### Parameters
 
-*   `args` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized method args object. (optional, default `'{}'`)
-
-    *   `args.callback` **any** Any callback value.
-    *   `args.click` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If truthy then click event will be emitted for sync results.
+*   `loaderArgs` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized loader args object. (optional, default `'{}'`)
+*   `callback` **any** 1C callback identifier of this wrapper function. (optional, default `'get'`)
 
 Returns **any** <br>
-- `sync`  [Describe sync results here]. <br>
-- `async` [Describe async results here].
+- `sync payload`  {{Describe sync payload here}}. <br>
+- `async payload` {{Describe async payload here}}.
 
-## initComponent
+## initComponentObject
 
 **Instantiates skripio component object.**
 
 ### Parameters
 
-*   `args` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized method args object. (optional, default `'{}'`)
-
-    *   `args.objectName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Skripio component object name.
-    *   `args.constructorArgs` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Component constructor args object.
-    *   `args.responseElementSelector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** DOM element selector that will receive async responses.
-    *   `args.callback` **any** Any callback value.
-    *   `args.click` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If truthy then click event will be emitted for sync results.
+*   `objectName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Component name to instantiate.
+*   `constructorArgs` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized constructor arguments object. See component constructor docs for details. (optional, default `'{}'`)
+*   `callback` **any** 1C callback identifier of this wrapper function. (optional, default `'init'`)
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** <br>
-- `sync`  If successful a serialized object that contains the instantiated **skripio** object name and **response DOM element selector** of a DOM element which will receive async responses from this object will be returned. <br>
-- `async` None.
+- `sync payload`  If successful a serialized object that contains instantiated **skripio component** object name and **DOM element id** which will receive async responses from this object will be returned. <br>
+- `async payload` None.
 
-## execComponentMethod
+## runComponentMethod
 
-**Executes skripio component methods.**
+**Executes skripio component method.**<br>
 
 ### Parameters
 
-*   `args` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized method args object. (optional, default `'{}'`)
-
-    *   `args.object` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Skripio component object name.
-    *   `args.method` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Skripio component method name.
-    *   `args.methodArgs` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Skripio component method arguments object.
-    *   `args.callback` **any** Any callback value.
-    *   `args.click` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If truthy then click event will be emitted for sync results.
+*   `object` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Skripio object name.
+*   `method` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Skripio object method name.
+*   `methodArgs` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized object that contains skripio component method arguments. (optional, default `'{}'`)
+*   `callback` **any** 1C callback identifier of this wrapper function. (optional, default `'run'`)
 
 Returns **any** <br>
-- `sync`  See component method docs. <br>
-- `async` See component method docs.
+- `sync payload`  See component method docs. <br>
+- `async payload` See component method docs.
+
+## SkripioComponent
+
+**Skripio component object.**<br>
+
+### Parameters
+
+*   `args` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** constructor arguments object.
+
+    *   `args.responseArgs` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** !Reserved! ResponseEmitter options.
+    *   `args.callback` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 1C callback identifier. (optional, default `'component'`)
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** <br>
+- `sync payload`  None. <br>
+- `async payload` [document async payloads here].
+
+### method
+
+**Skripio component method.**<br>
+
+#### Parameters
+
+*   `args` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Method arguments object.
+
+    *   `args.param1` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Method parameter. (optional, default `'do it'`)
+    *   `args.callback` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 1C callback identifier. (optional, default `'method'`)
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** <br>
+- `sync payload`  [document sync payloads here]. <br>
+- `async payload` [document async payloads here].

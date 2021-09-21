@@ -1,13 +1,13 @@
 {
   "name": "skripio-component-template",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Template for creating new skripio component",
   "scripts": {
     "watch": "webpack --config webpack.config.js --watch",
-    "build": "webpack --config webpack.config.js",
-    "release-it": "standard-version -a",
     "release-test": "standard-version -a --dry-run",
-    "doc": "documentation readme ./src/index.js -s=\"Reference\" --markdown-toc-max-depth=2 --shallow"
+    "build-it": "webpack --config webpack.config.js",
+    "document-it": "documentation readme ./src/index.js -s=\"Reference\" --markdown-toc-max-depth=3 --sort-order=alpha",
+    "release-it": "standard-version -a"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/fmecgroup/skripio-component-template#readme",
   "dependencies": {
-    "@skripio/response-emitter": "^1.0.0"
+    "@skripio/response-emitter": "^1.0.2"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
@@ -38,7 +38,7 @@
     "semistandard": "^16.0.1",
     "standard-version": "^9.3.1",
     "terser-webpack-plugin": "^5.2.4",
-    "webpack": "^5.52.1",
+    "webpack": "^5.53.0",
     "webpack-cli": "^4.8.0"
   },
   "semistandard": {
@@ -48,7 +48,41 @@
   },
   "standard-version": {
     "scripts": {
-      "prerelease": "npm run build && npm run doc && git add ./dist/bundle.html && git add ./README.md"
-    }
+      "prerelease": "npm run build-it && npm run document-it && git add ./dist/bundle.html && git add ./README.md"
+    },
+    "types": [
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "chore",
+        "hidden": true
+      },
+      {
+        "type": "docs",
+        "section": "Documentation"
+      },
+      {
+        "type": "style",
+        "hidden": true
+      },
+      {
+        "type": "refactor",
+        "hidden": true
+      },
+      {
+        "type": "perf",
+        "hidden": true
+      },
+      {
+        "type": "test",
+        "hidden": true
+      }
+    ]
   }
 }

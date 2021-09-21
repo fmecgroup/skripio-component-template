@@ -4,122 +4,104 @@ import './styles/custom.css';
 import ResponseEmitter from '@skripio/response-emitter';
 import SkripioComponent from './modules/skripio.component.js';
 
-const RESPONSE_DOM_ELEMENT_ID = '#response';
-const re = new ResponseEmitter(RESPONSE_DOM_ELEMENT_ID);
+window.ResponseEmitter = ResponseEmitter;
+const re = new ResponseEmitter({
+  responseElementId: 'init-response',
+  responseElementClass: 'response'
+});
 
 /**
-* **Downloads assets required for component to function.**
-* @param {string}   args          - Serialized method args object.
-* @param {*}        args.callback - Any callback value.
-* @param {boolean}  args.click    - If truthy then click event will be emitted for sync results.
+* **Gets downloadable assets required for component to function.**
+* @param {string}   loaderArgs  - Serialized loader args object.
+* @param {*}        callback    - 1C callback identifier of this wrapper function.
 * @returns {*} <br>
-* - `sync`  [Describe sync results here]. <br>
-* - `async` [Describe async results here].
+* - `sync payload`  {{Describe sync payload here}}. <br>
+* - `async payload` {{Describe async payload here}}.
 */
-window.downloadAssets = function (args = '{}') {
+window.getComponentAssets = function (loaderArgs = '{}', callback = 'get') {
   try {
-    args = JSON.parse(args);
+    loaderArgs = JSON.parse(loaderArgs);
   } catch (error) {
-    return re.emitResponse('none', ResponseEmitter.codes.DEV_ERROR, error.message);
+    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, error.message);
   }
-  const {
-    callback = 'none',
-    click = false
-  } = args;
   /*
   * Place here any code that will download any assets and libraries required for skripio component
   * that are not packaged in component bundle.
   * Amend argument object parameters set as required.
   */
-  return re.emitResponse(callback, ResponseEmitter.codes.DONE, 'DONE', click);
+  return re.emitResponse(callback, ResponseEmitter.codes.DONE, 'DONE');
 };
 
 /**
 * **Instantiates skripio component object.**
-* @param {string}   args                          - Serialized method args object.
-* @param {string}   args.objectName               - Skripio component object name.
-* @param {object}   args.constructorArgs          - Component constructor args object.
-* @param {string}   args.responseElementSelector  - DOM element selector that will receive async responses.
-* @param {*}        args.callback                 - Any callback value.
-* @param {boolean}  args.click                    - If truthy then click event will be emitted for sync results.
+* @param {string} objectName          - Component name to instantiate.
+* @param {string} constructorArgs     - Serialized constructor arguments object. See component constructor docs for details.
+* @param {*}      callback            - 1C callback identifier of this wrapper function.
 * @returns {string} <br>
-* - `sync`  If successful a serialized object that contains the instantiated **skripio** object name and **response DOM element selector** of a DOM element which will receive async responses from this object will be returned. <br>
-* - `async` None.
+* - `sync payload`  If successful a serialized object that contains instantiated **skripio component** object name and **DOM element id** which will receive async responses from this object will be returned. <br>
+* - `async payload` None.
 */
-window.initComponent = function (args = '{}') {
+window.initComponentObject = function (objectName, constructorArgs = '{}', callback = 'init') {
   try {
-    args = JSON.parse(args);
+    constructorArgs = JSON.parse(constructorArgs);
   } catch (error) {
-    return re.emitResponse('none', ResponseEmitter.codes.DEV_ERROR, error.message);
+    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, error.message);
   }
 
-  const {
-    objectName,
-    constructorArgs = {},
-    responseElementSelector = RESPONSE_DOM_ELEMENT_ID,
-    callback = 'none',
-    click = false
-  } = args;
+  constructorArgs.responseArgs = {
+    responseElementId: objectName,
+    responseElementClass: 'response'
+  };
 
   if (!objectName) {
-    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `'${objectName}' is not a valid objectName parameter.`, click);
+    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `'${objectName}' is not a valid component object name.`);
   }
 
   if (objectName in window) {
-    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `Object '${objectName}' is already initialized.`, click);
+    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `Object '${objectName}' has already been instantiated.`);
   }
 
   try {
     window[objectName] = new SkripioComponent(constructorArgs);
   } catch (error) {
-    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, error.message, click);
+    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, error.message);
   }
 
   return re.emitResponse(callback, ResponseEmitter.codes.RESULT, {
     name: objectName,
-    response: responseElementSelector
-  }, click);
+    response: objectName
+  });
 };
 
 /**
-* **Executes skripio component methods.**
-* @param {string}   args            - Serialized method args object.
-* @param {string}   args.object     - Skripio component object name.
-* @param {string}   args.method     - Skripio component method name.
-* @param {object}   args.methodArgs - Skripio component method arguments object.
-* @param {*}        args.callback   - Any callback value.
-* @param {boolean}  args.click      - If truthy then click event will be emitted for sync results.
+* **Executes skripio component method.**<br>
+* @param {string} object      - Skripio object name.
+* @param {string} method      - Skripio object method name.
+* @param {string} methodArgs  - Serialized object that contains skripio component method arguments.
+* @param {*}      callback    - 1C callback identifier of this wrapper function.
 * @returns {*} <br>
-* - `sync`  See component method docs. <br>
-* - `async` See component method docs.
+* - `sync payload`  See component method docs. <br>
+* - `async payload` See component method docs.
 */
-window.execComponentMethod = function (args = '{}') {
+window.runComponentMethod = function (object, method, methodArgs = '{}', callback = 'run') {
   try {
-    args = JSON.parse(args);
+    methodArgs = JSON.parse(methodArgs);
   } catch (error) {
-    return re.emitResponse('none', ResponseEmitter.codes.DEV_ERROR, error.message);
+    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, error.message);
   }
-
-  const {
-    object,
-    method,
-    methodArgs = {},
-    callback = 'none',
-    click = false
-  } = args;
 
   if (!object) {
-    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `'${object}' is not a valid object name.`, click);
+    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `'${object}' is not a valid object name.`);
   }
   if (!method) {
-    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `'${method}' is not a valid method name.`, click);
+    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `'${method}' is not a valid method name.`);
   }
   if (!(window[object] instanceof SkripioComponent)) {
-    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `'${object}' is not a valid skripio component.`, click);
+    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `'${object}' is not a valid skripio component.`);
+  }
+  if (!(typeof window[object][method] === 'function')) {
+    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `'${method}' is not a function.`);
   }
 
-  if (!(typeof window[object][method] === 'function')) {
-    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `'${method}' is not a valid skripio component method.`, click);
-  }
   return window[object][method](methodArgs);
 };
