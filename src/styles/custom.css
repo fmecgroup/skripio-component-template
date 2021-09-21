@@ -8,6 +8,6 @@ body {
     align-items: center;
 }
 
-#response {
+.response {
     display: none;
 }
