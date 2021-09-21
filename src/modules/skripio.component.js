@@ -3,10 +3,9 @@
 
 /**
 * **Skripio component object.**<br>
-* [document component constructor here].
-* @param    {object} args            - constructor arguments object.
+* @param    {object} args                 - constructor arguments object.
 * @param    {object} args.responseArgs    - !Reserved! ResponseEmitter options.
-* @param    {string} args.callback        - Constructor 1C callback identifier.
+* @param    {string} args.callback        - 1C callback identifier.
 * @returns  {string} <br>
 * - `sync payload`  None. <br>
 * - `async payload` [document async payloads here].
@@ -22,10 +21,10 @@ export default class SkripioComponent {
 
   /**
   * **Skripio component method.**<br>
-  * [document component method here].
-  * @param {object} args            - Method arguments object.
-  * @param {*} args.param1     - Method parameter.
-  * @returns {string} <br>
+  * @param    {object} args           - Method arguments object.
+  * @param    {string} args.param1    - Method parameter.
+  * @param    {string} args.callback  - 1C callback identifier.
+  * @returns  {string} <br>
   * - `sync payload`  [document sync payloads here]. <br>
   * - `async payload` [document async payloads here].
   */

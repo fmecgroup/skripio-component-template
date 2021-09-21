@@ -9,9 +9,7 @@ Template to init new **skripio** component repo.
 
 This template contains all necessary assets and build tools as well as config files to quickly start creating a new **skripio** component.
 
-Amend `getComponentAssets` global method to obtain downloadable assets.
-
-In most of the cases you do not need to amend other global methods.
+See [CONTRIBUTEJS.MD](https://github.com/fmecgroup/skripio-intro/blob/master/CONTRIBUTEJS.MD) for details on how to develop new skripio component.
 
 # Reference
 
@@ -19,15 +17,19 @@ In most of the cases you do not need to amend other global methods.
 
 ### Table of Contents
 
-*   [getComponentAssets](#getcomponentassets)
-    *   [Parameters](#parameters)
-*   [initComponentObject](#initcomponentobject)
-    *   [Parameters](#parameters-1)
-*   [runComponentMethod](#runcomponentmethod)
-    *   [Parameters](#parameters-2)
-*   [SkripioComponent](#skripiocomponent)
-    *   [Parameters](#parameters-3)
-    *   [method](#method)
+- [About](#about)
+- [Reference](#reference)
+    - [Table of Contents](#table-of-contents)
+  - [getComponentAssets](#getcomponentassets)
+    - [Parameters](#parameters)
+  - [initComponentObject](#initcomponentobject)
+    - [Parameters](#parameters-1)
+  - [runComponentMethod](#runcomponentmethod)
+    - [Parameters](#parameters-2)
+  - [SkripioComponent](#skripiocomponent)
+    - [Parameters](#parameters-3)
+    - [method](#method)
+      - [Parameters](#parameters-4)
 
 ## getComponentAssets
 

@@ -12,8 +12,8 @@ const re = new ResponseEmitter({
 
 /**
 * **Gets downloadable assets required for component to function.**
-* @param {string}   loaderArgs  - Serialized asset loader args object.
-* @param {*}        callback    - Wrapper function 1C callback identifier.
+* @param {string}   loaderArgs  - Serialized loader args object.
+* @param {*}        callback    - 1C callback identifier of this wrapper function.
 * @returns {*} <br>
 * - `sync payload`  {{Describe sync payload here}}. <br>
 * - `async payload` {{Describe async payload here}}.
@@ -35,8 +35,8 @@ window.getComponentAssets = function (loaderArgs = '{}', callback = 'get') {
 /**
 * **Instantiates skripio component object.**
 * @param {string} objectName          - Component name to instantiate.
-* @param {string} constructorArgs     - Serialized component constructor arguments object.
-* @param {*}      callback            - Wrapper function 1C callback identifier.
+* @param {string} constructorArgs     - Serialized constructor arguments object. See component constructor docs for details.
+* @param {*}      callback            - 1C callback identifier of this wrapper function.
 * @returns {string} <br>
 * - `sync payload`  If successful a serialized object that contains instantiated **skripio component** object name and **DOM element id** which will receive async responses from this object will be returned. <br>
 * - `async payload` None.
@@ -58,7 +58,7 @@ window.initComponentObject = function (objectName, constructorArgs = '{}', callb
   }
 
   if (objectName in window) {
-    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `Object '${objectName}' is already instantiated.`);
+    return re.emitResponse(callback, ResponseEmitter.codes.DEV_ERROR, `Object '${objectName}' has already been instantiated.`);
   }
 
   try {
@@ -75,11 +75,10 @@ window.initComponentObject = function (objectName, constructorArgs = '{}', callb
 
 /**
 * **Executes skripio component method.**<br>
-* For list of method arguments see corresponding method docs.
 * @param {string} object      - Skripio object name.
 * @param {string} method      - Skripio object method name.
 * @param {string} methodArgs  - Serialized object that contains skripio component method arguments.
-* @param {*}      callback    - Wrapper function 1C callback identifier.
+* @param {*}      callback    - 1C callback identifier of this wrapper function.
 * @returns {*} <br>
 * - `sync payload`  See component method docs. <br>
 * - `async payload` See component method docs.
