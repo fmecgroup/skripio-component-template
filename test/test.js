@@ -16,16 +16,13 @@ const SKRIPIO_METHODS = [
       {
         type: 'input-element',
         name: 'objectName',
-        default: 'colorPicker'
+        default: 'aComponent'
       },
       {
         type: 'editor-element',
         name: 'args',
         default: {
           componentOptions: {
-            spectrumOptions: {
-              color: 'blue'
-            }
           }
         }
       },
@@ -43,7 +40,7 @@ const SKRIPIO_METHODS = [
         type: 'selector-element',
         name: 'object',
         options: () => {
-          return Object.getOwnPropertyNames(skripio.objects);
+          return Object.getOwnPropertyNames(skripio._objects);
         }
       },
       {

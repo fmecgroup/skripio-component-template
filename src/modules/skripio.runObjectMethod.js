@@ -2,34 +2,58 @@
 /* global skripio */
 
 /**
-* **Executes skripio component method.**<br>
+* **Executes skripio component object method.**
+* @function runObjectMethod
+* @memberof skripio
 * @param {string} object      - Skripio object name.
 * @param {string} method      - Skripio object method name.
 * @param {string} methodArgs  - Serialized object that contains skripio component method arguments.
-* @param {*}      callback    - 1C callback identifier of this wrapper function.
+* @param {*}      callback    - 1C callback identifier of this function.
 * @returns {*} <br>
 * - `sync payload`  See component method docs. <br>
 * - `async payload` See component method docs.
 */
-export default function (object, method, methodArgs = '{}', callback = 'run') {
+export default (object, method, methodArgs = '{}', callback = 'runObjectMethod') => {
   try {
     methodArgs = JSON.parse(methodArgs);
   } catch (error) {
-    return skripio._emitter.emitResponse(callback, skripio._lib.Emitter.codes.DEV_ERROR, error.message);
+    return skripio._emitter.emitResponse(
+      callback,
+      skripio.lib.Emitter.codes.DEV_ERROR,
+      error.message);
   }
 
   if (!object) {
-    return skripio._emitter.emitResponse(callback, skripio._lib.Emitter.codes.DEV_ERROR, `'${object}' is not a valid object name.`);
+    return skripio._emitter.emitResponse(
+      callback,
+      skripio.lib.Emitter.codes.DEV_ERROR,
+      `${skripio._dict.errorPhrases.BAD_ARGUMENT}. '${object}' is not a valid object name.`);
   }
   if (!method) {
-    return skripio._emitter.emitResponse(callback, skripio._lib.Emitter.codes.DEV_ERROR, `'${method}' is not a valid method name.`);
+    return skripio._emitter.emitResponse(
+      callback,
+      skripio.lib.Emitter.codes.DEV_ERROR,
+      `${skripio._dict.errorPhrases.BAD_ARGUMENT}. '${method}' is not a valid method name.`);
   }
-  if (!(window[object] instanceof skripio._lib.Component)) {
-    return skripio._emitter.emitResponse(callback, skripio._lib.Emitter.codes.DEV_ERROR, `'${object}' is not a valid skripio component.`);
+  if (!(skripio._objects[object] instanceof skripio._lib.Component)) {
+    return skripio._emitter.emitResponse(
+      callback,
+      skripio.lib.Emitter.codes.DEV_ERROR,
+      `${skripio._dict.errorPhrases.BAD_ARGUMENT}. '${object}' is not a valid skripio component.`);
   }
-  if (!(typeof window[object][method] === 'function')) {
-    return skripio._emitter.emitResponse(callback, skripio._lib.Emitter.codes.DEV_ERROR, `'${method}' is not a function.`);
+  if (!(typeof skripio._objects[object][method] === 'function')) {
+    return skripio._emitter.emitResponse(
+      callback,
+      skripio.lib.Emitter.codes.DEV_ERROR,
+      `${skripio._dict.errorPhrases.BAD_ARGUMENT}. '${method}' is not a function.`);
   }
 
-  return window[object][method](methodArgs);
-}
+  try {
+    return skripio._objects[object][method](methodArgs);
+  } catch (error) {
+    return skripio._emitter.emitResponse(
+      callback,
+      skripio.lib.Emitter.codes.DEV_ERROR,
+      `'${method}' exception. ${error.message}`);
+  }
+};

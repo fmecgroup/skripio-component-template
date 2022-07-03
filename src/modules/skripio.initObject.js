@@ -2,7 +2,7 @@
 /* global skripio */
 
 /**
-* **Instantiates skripio._lib.Component.**
+* **Instantiates skripio component object.**
 * @param {string} objectName                      - Component name to instantiate.
 * @param {string} initOptions                     - Serialized method options object.
 * @param {object} initOptions.componentOptions    - skripio._lib.Component options.
@@ -25,7 +25,8 @@ export default function (objectName, initOptions = '{}', callback = 'initObject'
     componentOptions = {}
   } = initOptions;
 
-  componentOptions[Symbol.for('responseArgs')] = {
+  componentOptions[Symbol.for('componentDOMElementSelector')] = '[data-skripio="component-container"]';
+  componentOptions[Symbol.for('componentResponseArgs')] = {
     responseElementId: `${objectName}-response`,
     responseElementClass: 'response'
   };

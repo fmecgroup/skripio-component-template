@@ -2,7 +2,7 @@
 
 import './styles/custom.css';
 import ResponseEmitter from '@skripio/response-emitter';
-import SkripioComponent from './component.js';
+import SkripioComponent from './modules/component.js';
 import errorPhrases from './modules/dict.error.phrases.js';
 import initObject from './modules/skripio.initObject.js';
 import runObjectMethod from './modules/skripio.runObjectMethod.js';
