@@ -19,6 +19,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'Skripio component',
       template: './template.html',
       filename: 'bundle.html',
       inject: 'body',
