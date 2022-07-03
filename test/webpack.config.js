@@ -6,25 +6,25 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HTMLInlineCSSWebpackPlugin = require('html-inline-css-webpack-plugin').default;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  mode: 'production',
-  context: path.resolve(__dirname, 'src'),
+  mode: 'development',
   entry: {
-    skripio: './index.js'
+    skripio: './src/index.js',
+    test: './test/test.js'
   },
+  devtool: 'inline-source-map',
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: '[name].test.js',
+    path: path.resolve(__dirname, './dist')
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Skripio component',
-      template: './template.html',
-      filename: 'bundle.html',
+      template: './test/template.html',
+      filename: 'test.html',
       inject: 'body',
-      cache: false,
-      minify: true
+      cache: false
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
@@ -32,7 +32,8 @@ module.exports = {
     }),
     new HtmlInlineScriptPlugin(),
     new HTMLInlineCSSWebpackPlugin(),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new Dotenv()
   ],
   module: {
     rules: [
@@ -46,7 +47,7 @@ module.exports = {
     ]
   },
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [
       new CssMinimizerPlugin(),
       new TerserPlugin({
