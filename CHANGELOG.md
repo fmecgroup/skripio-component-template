@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/fmecgroup/skripio-component-template/compare/v1.0.2...v2.0.0) (2022-07-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* 
+
+### Features
+
+* Add testing suite ([d1253a1](https://github.com/fmecgroup/skripio-component-template/commit/d1253a1c430e128d999501b03a511b130cb44c73)), closes [#4](https://github.com/fmecgroup/skripio-component-template/issues/4)
+* Core updated ([82b9bc6](https://github.com/fmecgroup/skripio-component-template/commit/82b9bc64f637671cbf76de6c256c0a7cda13c6ab))
+* Update dependencies ([38ddc68](https://github.com/fmecgroup/skripio-component-template/commit/38ddc68c054a0fa2f40c0cdc299684917bad9d48)), closes [#4](https://github.com/fmecgroup/skripio-component-template/issues/4)
+* Update gitignore and webpack config ([078e16d](https://github.com/fmecgroup/skripio-component-template/commit/078e16d3b0aa5d57e0e74d7d3f5632f8eafa5de5)), closes [#4](https://github.com/fmecgroup/skripio-component-template/issues/4)
+
 ### [1.0.2](https://github.com/fmecgroup/skripio-component-template/compare/v1.0.1...v1.0.2) (2021-09-21)
 
 
