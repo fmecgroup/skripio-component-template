@@ -2,12 +2,13 @@
 /* global skripio */
 
 /**
-* **Executes skripio component object method.**
+ * **`skripio.runObjectMethod`** function.<br>
+* Executes given `SkripioComponent` instance method.
 * @function runObjectMethod
 * @memberof skripio
-* @param {string} object      - Skripio object name.
-* @param {string} method      - Skripio object method name.
-* @param {string} methodArgs  - Serialized object that contains skripio component method arguments.
+* @param {string} object      - `SkripioComponent` instance name.
+* @param {string} method      - `SkripioComponent` method name.
+* @param {string} methodArgs  - `SkripioComponent` serialized method arguments.
 * @param {*}      callback    - 1C callback identifier of this function.
 * @returns {*} <br>
 * - `sync payload`  See component method docs. <br>

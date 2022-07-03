@@ -2,13 +2,16 @@
 /* global skripio */
 
 /**
-* **Instantiates skripio component object.**
-* @param {string} objectName                      - Component name to instantiate.
-* @param {string} initOptions                     - Serialized method options object.
-* @param {object} initOptions.componentOptions    - skripio._lib.Component options.
+* **`skripio.initObject`** function.<br>
+* Creates `SkripioComponent` instance.
+* @function initObject
+* @memberof skripio
+* @param {string} objectName                      - Component object name.
+* @param {string} initOptions                     - Serialized method options.
+* @param {object} initOptions.componentOptions    - `SkripioComponent` constructor options.
 * @param {*}      callback                        - 1C callback identifier of this wrapper function.
 * @returns {string} <br>
-* - `sync payload`  If successful the response object that contains instantiated **skripio component** object name and **DOM element id** which will receive async responses from this object will be returned. <br>
+* - `sync payload`  If successful the response object that contains instantiated **SkripioComponent** object name and **DOM element id** which will receive async responses from this object will be returned. <br>
 * - `async payload` None.
 */
 export default function (objectName, initOptions = '{}', callback = 'initObject') {

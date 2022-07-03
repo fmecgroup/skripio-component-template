@@ -2,8 +2,8 @@
 /* global skripio */
 
 /**
-* SkripioComponent object.
-* @param {object}   componentOptions                          - Options used to instantiate a component object.
+* SkripioComponent class.
+* @param {object}   componentOptions      - Constructor options.
 * @returns {string} <br>
 * - `sync payload`  None <br>
 * - `async payload` None.
@@ -26,10 +26,9 @@ export default class SkripioComponent {
   }
 
   /**
-  * **sync method.**<br>
-  * Displays message passed and returns it.
-  * @param    {object} args           - Method arguments object.
-  * @param    {string} args.message   - Message text to show.
+  * * **Method that returns result synchronously.**<br>
+  * @param    {object} args           - Method arguments.
+  * @param    {string} args.message   - Message text.
   * @param    {string} args.callback  - 1C callback identifier.
   * @returns  {string} <br>
   * - `sync payload`  Message passed. <br>
@@ -41,9 +40,9 @@ export default class SkripioComponent {
   }
 
   /**
-  * **async method.**<br>
-  * @param    {object} args           - Method arguments object.
-  * @param    {string} args.message   - Message text to emit.
+  * **Method that returns result asynchronously.**<br>
+  * @param    {object} args           - Method arguments.
+  * @param    {string} args.message   - Message text.
   * @param    {string} args.timeout   - Emit timeout.
   * @param    {string} args.callback  - 1C callback identifier.
   * @returns  {string} <br>

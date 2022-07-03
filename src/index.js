@@ -8,7 +8,7 @@ import initObject from './modules/skripio.initObject.js';
 import runObjectMethod from './modules/skripio.runObjectMethod.js';
 
 /**
-* skripio component namespace.
+* skripio namespace.
 * @namespace skripio
 */
 const skripio = {};
