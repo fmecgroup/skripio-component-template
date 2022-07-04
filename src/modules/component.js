@@ -2,13 +2,14 @@
 /* global skripio */
 
 /**
-* SkripioComponent class.
-* @param {object}   componentOptions      - Constructor options.
+* **`Component`** class<br>
+* An object of this class is instantiated by the `initObject` function
+* @param {object}   componentOptions      - Constructor options interface
 * @returns {string} <br>
-* - `sync payload`  None <br>
-* - `async payload` None.
+* - `sync payload`  None<br>
+* - `async payload` None
 */
-export default class SkripioComponent {
+export default class Component {
   constructor ({
     [Symbol.for('componentDOMElementSelector')]: componentDOMElementSelector,
     [Symbol.for('componentResponseArgs')]: componentResponseArgs
@@ -26,13 +27,13 @@ export default class SkripioComponent {
   }
 
   /**
-  * * **Method that returns result synchronously.**<br>
-  * @param    {object} args           - Method arguments.
-  * @param    {string} args.message   - Message text.
-  * @param    {string} args.callback  - 1C callback identifier.
+  * * **Method that returns result synchronously**<br>
+  * @param    {object} args           - Method arguments
+  * @param    {string} args.message   - Message text
+  * @param    {string} args.callback  - 1C callback identifier
   * @returns  {string} <br>
-  * - `sync payload`  Message passed. <br>
-  * - `async payload` None.
+  * - `sync payload`  Message passed<br>
+  * - `async payload` None
   */
   syncMethod ({ message = 'Hi from sync method!', callback = 'syncMethod' }) {
     this._componentDiv.innerText = message;
@@ -40,14 +41,14 @@ export default class SkripioComponent {
   }
 
   /**
-  * **Method that returns result asynchronously.**<br>
-  * @param    {object} args           - Method arguments.
-  * @param    {string} args.message   - Message text.
-  * @param    {string} args.timeout   - Emit timeout.
-  * @param    {string} args.callback  - 1C callback identifier.
+  * **Method that returns result asynchronously**<br>
+  * @param    {object} args           - Method arguments
+  * @param    {string} args.message   - Message text
+  * @param    {string} args.timeout   - Emit timeout
+  * @param    {string} args.callback  - 1C callback identifier
   * @returns  {string} <br>
-  * - `sync payload`  None. <br>
-  * - `async payload` Message passed.
+  * - `sync payload`  None<br>
+  * - `async payload` Message passed
   */
   asyncMethod ({ message = 'Hi from async method after timeout!', timeout = 1200, callback = 'asyncMethod' }) {
     setTimeout(() => {

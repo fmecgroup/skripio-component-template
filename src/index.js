@@ -2,19 +2,19 @@
 
 import './styles/custom.css';
 import ResponseEmitter from '@skripio/response-emitter';
-import SkripioComponent from './modules/component.js';
+import Component from './modules/component.js';
 import errorPhrases from './modules/dict.error.phrases.js';
 import initObject from './modules/skripio.initObject.js';
 import runObjectMethod from './modules/skripio.runObjectMethod.js';
 
 /**
-* skripio namespace.
+* **`skripio`** namespace
 * @namespace skripio
 */
 const skripio = {};
 
 /**
-* A namespace for instantiated skripio objects.
+* A namespace for instantiated skripio objects
 * @namespace _objects
 * @memberof skripio
 * @private
@@ -22,10 +22,10 @@ const skripio = {};
 const objects = {};
 
 /**
-* Globally available dictionaries.
+* Globally available dictionaries
 * @namespace _dict
 * @memberof skripio
-* @property {object} errorPhrases    - Standard error phrases.
+* @property {object} errorPhrases    - Standard error phrases
 * @private
 */
 const dict = {
@@ -33,20 +33,20 @@ const dict = {
 };
 
 /**
-* Globally available helpers.
+* Globally available classes
 * @namespace _lib
 * @memberof skripio
-* @property {object} Emitter    - Response Emitter library.
-* @property {object} Component  - Skripio component class.
+* @property {object} Emitter    - Response Emitter library
+* @property {object} Component  - Skripio component class
 * @private
 */
 const lib = {
   Emitter: ResponseEmitter,
-  Component: SkripioComponent
+  Component: Component
 };
 
 /**
-* Globally available response emitter.
+* Globally available response emitter
 * @memberof skripio
 * @private
 */

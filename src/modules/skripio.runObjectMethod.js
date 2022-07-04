@@ -2,17 +2,17 @@
 /* global skripio */
 
 /**
- * **`skripio.runObjectMethod`** function.<br>
-* Executes given `SkripioComponent` instance method.
+ * **`skripio.runObjectMethod`** function<br>
+* Executes given `Component` instance method
 * @function runObjectMethod
 * @memberof skripio
-* @param {string} object      - `SkripioComponent` instance name.
-* @param {string} method      - `SkripioComponent` method name.
-* @param {string} methodArgs  - `SkripioComponent` serialized method arguments.
-* @param {*}      callback    - 1C callback identifier of this function.
+* @param {string} object      - `Component` instance name
+* @param {string} method      - `Component` instance method name
+* @param {string} methodArgs  - `Component` serialized method arguments
+* @param {*}      callback    - 1C callback identifier of this function
 * @returns {*} <br>
-* - `sync payload`  See component method docs. <br>
-* - `async payload` See component method docs.
+* - `sync payload`  See component method docs<br>
+* - `async payload` See component method docs
 */
 export default (object, method, methodArgs = '{}', callback = 'runObjectMethod') => {
   try {
