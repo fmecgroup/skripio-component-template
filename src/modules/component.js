@@ -3,8 +3,8 @@
 
 /**
 * **`Component`** class<br>
-* An object of this class is instantiated by the `initObject` function
-* @param {object}   componentOptions      - Constructor options interface
+* An object of this class is instantiated by the `skripio.initObject` function.
+* @param {object}   componentOptions      - Constructor options interface object.
 * @returns {string} <br>
 * - `sync payload`  None<br>
 * - `async payload` None
@@ -27,10 +27,11 @@ export default class Component {
   }
 
   /**
-  * * **Method that returns result synchronously**<br>
-  * @param    {object} args           - Method arguments
-  * @param    {string} args.message   - Message text
-  * @param    {string} args.callback  - 1C callback identifier
+  * **`syncMethod`** Component method<br>
+  * Returns result synchronously.
+  * @param    {object} args           - Method arguments object.
+  * @param    {string} args.message   - Message text.
+  * @param    {string} args.callback  - 1C callback identifier.
   * @returns  {string} <br>
   * - `sync payload`  Message passed<br>
   * - `async payload` None
@@ -41,11 +42,12 @@ export default class Component {
   }
 
   /**
-  * **Method that returns result asynchronously**<br>
-  * @param    {object} args           - Method arguments
-  * @param    {string} args.message   - Message text
-  * @param    {string} args.timeout   - Emit timeout
-  * @param    {string} args.callback  - 1C callback identifier
+  * **`asyncMethod`** Component method<br>
+  * Returns result asynchronously after given timeout.
+  * @param    {object} args           - Method arguments object.
+  * @param    {string} args.message   - Message text.
+  * @param    {string} args.timeout   - Emit timeout.
+  * @param    {string} args.callback  - 1C callback identifier.
   * @returns  {string} <br>
   * - `sync payload`  None<br>
   * - `async payload` Message passed

@@ -3,13 +3,13 @@
 
 /**
  * **`skripio.runObjectMethod`** function<br>
-* Executes given `Component` instance method
+* Executes given `Component` instance method.
 * @function runObjectMethod
 * @memberof skripio
-* @param {string} object      - `Component` instance name
-* @param {string} method      - `Component` instance method name
-* @param {string} methodArgs  - `Component` serialized method arguments
-* @param {*}      callback    - 1C callback identifier of this function
+* @param {string} object      - `Component` instance name.
+* @param {string} method      - `Component` instance method name.
+* @param {string} methodArgs  - `Component` method arguments (stringified).
+* @param {*}      callback    - 1C callback identifier of this function.
 * @returns {*} <br>
 * - `sync payload`  See component method docs<br>
 * - `async payload` See component method docs

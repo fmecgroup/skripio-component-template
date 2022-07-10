@@ -32,15 +32,15 @@ See [CONTRIBUTEJS.MD](https://github.com/fmecgroup/skripio-intro/blob/master/CON
 ### initObject
 
 **`skripio.initObject`** function<br>
-Creates `skripio.Component` instance
+Creates a `Component` instance.
 
 #### Parameters
 
-*   `objectName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Component object name
-*   `initOptions` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Serialized method options
+*   `objectName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Component instance name.
+*   `initOptions` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Init options object (stringified).
 
-    *   `initOptions.componentOptions` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** `Component` constructor options
-*   `callback` **any** 1C callback identifier of this wrapper function
+    *   `initOptions.componentOptions` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** `Component` constructor options.
+*   `callback` **any** 1C callback identifier of this wrapper function.
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** <br>
 - `sync payload`  Instantiated **Component** object name and **DOM element id** which will receive async responses from this object will be returned<br>
@@ -49,14 +49,14 @@ Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 ### runObjectMethod
 
 **`skripio.runObjectMethod`** function<br>
-Executes given `Component` instance method
+Executes given `Component` instance method.
 
 #### Parameters
 
-*   `object` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** `Component` instance name
-*   `method` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** `Component` instance method name
-*   `methodArgs` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** `Component` serialized method arguments
-*   `callback` **any** 1C callback identifier of this function
+*   `object` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** `Component` instance name.
+*   `method` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** `Component` instance method name.
+*   `methodArgs` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** `Component` method arguments (stringified).
+*   `callback` **any** 1C callback identifier of this function.
 
 Returns **any** <br>
 - `sync payload`  See component method docs<br>
@@ -65,11 +65,11 @@ Returns **any** <br>
 ## Component
 
 **`Component`** class<br>
-An object of this class is instantiated by the `initObject` function
+An object of this class is instantiated by the `skripio.initObject` function.
 
 ### Parameters
 
-*   `componentOptions` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Constructor options interface
+*   `componentOptions` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Constructor options interface object.
 
     *   `componentOptions.undefined`  
     *   `componentOptions.undefined`  
@@ -80,15 +80,16 @@ Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 ### asyncMethod
 
-**Method that returns result asynchronously**<br>
+**`asyncMethod`** Component method<br>
+Returns result asynchronously after given timeout.
 
 #### Parameters
 
-*   `args` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Method arguments
+*   `args` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Method arguments object.
 
-    *   `args.message` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Message text (optional, default `'Hi from async method after timeout!'`)
-    *   `args.timeout` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Emit timeout (optional, default `1200`)
-    *   `args.callback` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 1C callback identifier (optional, default `'asyncMethod'`)
+    *   `args.message` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Message text. (optional, default `'Hi from async method after timeout!'`)
+    *   `args.timeout` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Emit timeout. (optional, default `1200`)
+    *   `args.callback` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 1C callback identifier. (optional, default `'asyncMethod'`)
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** <br>
 - `sync payload`  None<br>
@@ -96,14 +97,15 @@ Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 ### syncMethod
 
-*   **Method that returns result synchronously**<br>
+**`syncMethod`** Component method<br>
+Returns result synchronously.
 
 #### Parameters
 
-*   `args` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Method arguments
+*   `args` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Method arguments object.
 
-    *   `args.message` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Message text (optional, default `'Hi from sync method!'`)
-    *   `args.callback` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 1C callback identifier (optional, default `'syncMethod'`)
+    *   `args.message` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Message text. (optional, default `'Hi from sync method!'`)
+    *   `args.callback` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 1C callback identifier. (optional, default `'syncMethod'`)
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** <br>
 - `sync payload`  Message passed<br>
