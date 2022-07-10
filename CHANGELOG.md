@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/fmecgroup/skripio-component-template/compare/v2.0.0...v2.0.1) (2022-07-10)
+
+
+### Documentation
+
+* Refine docs ([1708da9](https://github.com/fmecgroup/skripio-component-template/commit/1708da9db4306e33ebb480e503e3782dc73313ba))
+* Refine docs ([4d2b4e5](https://github.com/fmecgroup/skripio-component-template/commit/4d2b4e53598d503b58dca444ab1dc96feec1e36b))
+
 ## [2.0.0](https://github.com/fmecgroup/skripio-component-template/compare/v1.0.2...v2.0.0) (2022-07-03)
 
 
